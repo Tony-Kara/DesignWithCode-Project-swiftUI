@@ -13,10 +13,13 @@ struct ContentView: View {
         ZStack {
             
             BackCardView() // use this to move the frame up, subview was extracted
+                .offset(x: 0, y: -40)
+                .scaleEffect(0.9) // third view C, view A and B is on top of this view, back view
+            
+            BackCardView() // second view B
                 .offset(x: 0, y: -20)
             
-            
-            CardView()
+            CardView() // first view A on top of view B, view in front
         }
         
         
