@@ -12,6 +12,8 @@ struct ContentView: View {
         
         ZStack {
             
+            TitleView()
+            
             BackCardView() // use this to move the frame up, subview was extracted
                 .background(Color("card4"))
                 .cornerRadius(20)
@@ -34,6 +36,26 @@ struct ContentView: View {
             
             CardView() // first view A on top of view B, view in front
                 .blendMode(.hardLight) //this is a good effect for overlapping views
+            
+            VStack {
+                Rectangle()
+                    .frame(width: 40, height: 5)
+                    .cornerRadius(3)
+                    .opacity(0.1)
+                
+                Text("This certificate is proof that Eniola Anthony has acheived the UI Design course with the approval from a Design+Code instructor")
+                    .multilineTextAlignment(.center)
+                    .font(.subheadline)
+                    .lineSpacing(4)
+                Spacer()
+            }
+            .padding()
+            .background(Color.white)
+            .cornerRadius(30)
+            .shadow(radius: 20)
+            .offset(x: 0, y: 500)
+            
+            
         }
         
         
@@ -91,5 +113,22 @@ struct BackCardView: View {
         .frame(width: 340, height: 220)
         
         
+    }
+}
+
+struct TitleView: View {
+    var body: some View {
+        VStack {
+            
+            HStack {
+                Text("Certificates")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                Spacer() //adding a spacer to this Horizontal stack will make this label move only right and left
+            }
+            .padding()
+            Image("Background1")
+            Spacer() //adding a spacer to this sub parent veritcal stack will make push both the Text label and image to the top.
+        }
     }
 }
